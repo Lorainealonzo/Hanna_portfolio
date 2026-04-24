@@ -1,0 +1,271 @@
+/* --- BASE RESET & GLOBAL STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth; /* Smooth Scrolling */
+}
+
+/* ---  THEME COLORS (EXACT FROM YOUR CODE) --- */
+:root {
+    --bg-main: #0F1A30;       /* Main Background (Dark Navy) */
+    --bg-nav: #050E20;        /* Navigation Bar Background */
+    --bg-card: #1E2940;       /* Card Background (Projects/Contact) */
+    --accent-blue: #40C4FF;   /* Light Blue Highlight */
+    --text-white: #FFFFFF;    /* White Text */
+    
+    /*  SPACING VALUES (FIXED - NOT TOO BIG/NOT TOO SMALL) */
+    --gap-section: 2.5rem;     /* Space Between Main Sections */
+    --gap-element: 1.2rem;     /* Space Between Elements */
+    --gap-small: 0.6rem;       /* Tiny Gaps */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-white);
+    line-height: 1.6;
+    overflow-x: hidden; /* Stop Horizontal Scroll */
+    width: 100%;
+    touch-action: manipulation; /* Fix Touch Issues */
+}
+
+/* ---  NAVIGATION BAR STYLE --- */
+nav {
+    background-color: var(--bg-nav);
+    padding: 1rem 4%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--bg-card);
+}
+
+.logo {
+    font-size: clamp(1.6rem, 5vw, 1.8rem);
+    font-weight: bold;
+    color: var(--text-white);
+    margin-bottom: var(--gap-small);
+}
+
+.nav-links {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-links a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: clamp(1rem, 3.5vw, 1.1rem);
+    transition: color 0.2s ease;
+}
+
+/* ACTIVE/HOVER LINK COLOR */
+.nav-links a.active,
+.nav-links a:hover {
+    color: var(--accent-blue);
+}
+
+/*  REMOVE SECTION FLASH EFFECT */
+section:target {
+    background: transparent !important;
+}
+
+/* ---  MAIN CONTAINER --- */
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 4%;
+}
+
+/* ---  HOME SECTION STYLE --- */
+.hero {
+    text-align: center;
+    padding: var(--gap-section) 0;
+}
+
+.hero h1 {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+    margin-bottom: var(--gap-element);
+}
+
+.hero h1 span {
+    color: var(--accent-blue);
+}
+
+/* --- CONTACT BUTTON STYLE --- */
+.contact-btn {
+    display: inline-block;
+    background-color: var(--accent-blue);
+    color: #000;
+    padding: 0.8rem 2.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: clamp(1rem, 4vw, 1.1rem);
+    border-radius: 5px;
+    margin-bottom: var(--gap-section);
+    transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #73D2FF;
+}
+
+/* --- PROFILE IMAGE STYLE --- */
+.profile-img {
+    width: clamp(150px, 45vw, 220px);
+    height: clamp(180px, 55vw, 260px);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-blue);
+}
+
+/* ---  SECTION HEADINGS STYLE --- */
+h2 {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    color: var(--accent-blue);
+    margin: var(--gap-section) 0 var(--gap-element);
+    padding-bottom: var(--gap-small);
+    border-bottom: 2px solid var(--bg-card);
+    display: inline-block;
+}
+
+/* ---  ABOUT ME SECTION STYLE --- */
+.about-text {
+    font-size: clamp(0.95rem, 3.8vw, 1.1rem);
+    text-align: left;
+    line-height: 1.7;
+    color: var(--text-white);
+}
+
+/* ---  SKILLS SECTION STYLE --- */
+.skill-item {
+    margin: var(--gap-element) 0;
+}
+
+.skill-name {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    margin-bottom: var(--gap-small);
+    color: var(--text-white);
+}
+
+/* SKILL BAR STYLING */
+.skill-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: var(--bg-card);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-bar {
+    height: 100%;
+    width: 100%;
+    background-color: var(--accent-blue);
+    border-radius: 4px;
+}
+
+/* ---  PROJECTS SECTION STYLE --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-element);
+    margin-top: var(--gap-small);
+}
+
+.project-card {
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+}
+
+.project-card h3 {
+    color: var(--accent-blue);
+    font-size: clamp(1.2rem, 4.5vw, 1.4rem);
+    margin-bottom: var(--gap-small);
+}
+
+.project-card p {
+    font-size: clamp(0.9rem, 3.7vw, 1rem);
+    line-height: 1.6;
+    color: #E0E0E0;
+    margin-bottom: var(--gap-small);
+}
+
+.view-btn {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: clamp(0.9rem, 3.7vw, 1rem);
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.view-btn:hover {
+    color: #73D2FF;
+    text-decoration: underline;
+}
+
+/* ---  CONTACT SECTION STYLE --- */
+.contact-card {
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: var(--gap-small) 0 var(--gap-section);
+}
+
+.contact-card p {
+    font-size: clamp(1rem, 4vw, 1.1rem);
+    margin: var(--gap-element) 0;
+    text-align: left;
+}
+
+.contact-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    word-break: break-all;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #73D2FF;
+    text-decoration: underline;
+}
+
+/* ---  DESKTOP SCREEN ADJUSTMENT --- */
+@media screen and (min-width: 768px) {
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1.2rem 8%;
+    }
+    .nav-links {
+        gap: 2.5rem;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 8%;
+    }
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    .profile-img {
+        width: 320px;
+        height: 380px;
+    }
+}
